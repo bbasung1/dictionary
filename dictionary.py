@@ -1,6 +1,6 @@
 import requests
 url='https://api.dictionaryapi.dev/api/v2/entries/en/'
-MAX=9
+MAX=20
 N=0
 M=0
 arr=[None]*MAX
@@ -45,7 +45,6 @@ for i in range(fn):
     pos[i]=int(input("채워져있는 자리의 위치를 입력하세요: "))
     ltr[i]=input("채워져 있는 글자를 입력하세요: ")
 ltr=list(ltr)
-print(type(ltr))
 func(0,k)
 print("확인된 단어")
 print(word)
