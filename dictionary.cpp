@@ -60,6 +60,6 @@ int main(void)
 	}
 	func(0,k,pos,ltr);
 	ofs.close();
-	system("node checktest.js>log.txt");
+	system("node checktest.js > log.txt");
 	return 0;
 }
