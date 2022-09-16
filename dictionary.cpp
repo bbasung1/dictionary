@@ -1,8 +1,10 @@
 #include <iostream>
 #include <vector>
 #include <string>
+#include <stdlib.h>
+#include <fstream>
 using namespace std;
-
+ofstream ofs("./wow.txt");
 const int MAX = 8 + 1;
 int fn;
 int N, M,X;
@@ -24,7 +26,10 @@ void func(int cnt,string k,int pos[],char ltr[])
 			j++;
 		}
 		string s(tmp.begin(),tmp.end());
-		word.push_back(s);
+		//word.push_back(s);
+		cout<<s<<"\n";
+		//ofs<<s;
+		ofs<<s<<"\n";
 		return;
 	}
 
@@ -41,18 +46,20 @@ void func(int cnt,string k,int pos[],char ltr[])
 int main(void)
 {
     string k;
+	cout<<"이미 나온 글자들을 제외하고, 제시 낱말들을 이어 쓰세요: ";
 	cin>>k;
 	N=k.length();
+	cout<<"비어있는 칸의 수와 채워져 있는 칸 수를 입력하세요: ";
 	cin >> M >> fn;
 	X=N+M;
 	int *pos=new int(fn);
 	char *ltr=new char(fn);
 	for(int i=0;i<fn;i++){
+		cout<<"채워져 있는 자리의 위치와 글자를 입력하세요: ";
 		cin>>pos[i]>>ltr[i];
 	}
 	func(0,k,pos,ltr);
-	for(auto i:word){
-		cout<<i<<"\n";
-	}
+	ofs.close();
+	system("node checktest.js>log.txt");
 	return 0;
 }
