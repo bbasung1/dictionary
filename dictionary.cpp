@@ -3,6 +3,7 @@
 #include <string>
 #include <stdlib.h>
 #include <fstream>
+#include <algorithm>
 using namespace std;
 ofstream ofs("./wow.txt");
 const int MAX = 8 + 1;
@@ -26,10 +27,10 @@ void func(int cnt,string k,int pos[],char ltr[])
 			j++;
 		}
 		string s(tmp.begin(),tmp.end());
-		//word.push_back(s);
-		cout<<s<<"\n";
+		word.push_back(s);
+		//cout<<s<<"\n";
 		//ofs<<s;
-		ofs<<s<<"\n";
+		//ofs<<s<<"\n";
 		return;
 	}
 
@@ -59,6 +60,12 @@ int main(void)
 		cin>>pos[i]>>ltr[i];
 	}
 	func(0,k,pos,ltr);
+	sort(word.begin(),word.end());
+	word.erase(unique(word.begin(),word.end()),word.end());
+	for(auto i:word){
+		cout<<i<<"\n";
+		ofs<<i<<"\n";
+	}
 	ofs.close();
 	system("node checktest.js > log.txt");
 	return 0;
