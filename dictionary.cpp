@@ -4,6 +4,9 @@
 #include <stdlib.h>
 #include <fstream>
 #include <algorithm>
+#ifdef _WIN32
+#include <windows.h>
+#endif
 using namespace std;
 ofstream ofs("./wow.txt");
 const int MAX = 8 + 1;
@@ -46,8 +49,13 @@ void func(int cnt,string k,int pos[],char ltr[])
 
 int main(void)
 {
+	#ifdef _WIN32
+	//system("chcp 65001");
+	SetConsoleOutputCP(CP_UTF8);
+	#endif
     string k;
-	cout<<"이미 나온 글자들을 제외하고, 제시 낱말들을 이어 쓰세요: ";
+	string test="이미 나온 글자들을 제외하고, 제시 낱말들을 이어 쓰세요: ";
+	cout<<test;
 	cin>>k;
 	N=k.length();
 	cout<<"비어있는 칸의 수와 채워져 있는 칸 수를 입력하세요: ";
