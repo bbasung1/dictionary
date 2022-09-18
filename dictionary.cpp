@@ -68,9 +68,7 @@ int main(void)
 	}
 	cmd+="> log.txt";
 	const char * s =cmd.c_str();
-	cout<<s<<"\n";
+	//cout<<s<<"\n";
 	system(s);
-	//system("node test.js > log.txt vin sag");
-	//cout<<cmd<<"\n";
 	return 0;
 }
