@@ -1,3 +1,2 @@
 console log
-neem
-seem
+once
