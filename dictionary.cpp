@@ -2,7 +2,6 @@
 #include <vector>
 #include <string>
 #include <stdlib.h>
-#include <fstream>
 #include <algorithm>
 #ifdef _WIN32
 #include <windows.h>
@@ -69,9 +68,7 @@ int main(void)
 	{
 		cmd += i + " ";
 	}
-	// cmd+="> log.txt";
 	const char *s = cmd.c_str();
-	// cout<<s<<"\n";
 	system(s);
 	return 0;
 }
